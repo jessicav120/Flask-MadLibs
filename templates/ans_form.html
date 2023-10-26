@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Fill in the prompt {%endblock%}
+
+{%block content%}
+<form action="/story">
+    {% for p in prompts%}
+    <div>
+        <label for="{{ p }}">{{p}}:</label>
+        <input type="text" class="prompt_input" name="{{ p }}">
+    </div>
+    {%endfor%}
+    <input type="hidden" name="chosen_story" value="{{chosen_story}}">
+    <button>Submit</button>
+</form>
+{%endblock%}
